@@ -1,0 +1,193 @@
+Entrada y salida:
+----------------------------------------------------------------------------
+Viene del ingles input/output (I/O) y en español seria E/S(entrada/salida),
+es la suma o coleccion de interfaces que usan los subsistemas de un sistema de informacion
+para poder comunicarse uno con otros, es decir poder transmitir los
+datos recibidos,para su procesamiento y la generacion de una salida.
+
+Como mencionamos las entradas son las señales recibidas por la unidad mientras
+que las salidas son señales enviadas por el mismo.
+
+Todo algoritmo debe seguir lo que nosotros conocemos como el tratamiento de
+la informacion o estructura basica de un sistema: ENTRADA-PROCESO-SALIDA.
+
+Desarrollo:
+Cuando nos referimos a ENTRADA, hablamos de aquellos datos en principio para
+poder producir un resultado.
+PROCESO es la parte del tratamiento donde la informacion como su nombre lo 
+indica, se procesa buscando obtener la solucion al problema o situacion 
+planteada.
+SALIDA es justamente el resultado obtenido dado el proceso de los datos que 
+obtuvimos de entrada, la supuesta solucion al problema o situacion.
+
+Por ahora todo lo que estuvimos trabajando tenian un "fin" del guardado de
+los datos,es decir, una vez terminado el programa,los datos que habiamos utilizado
+se borraban. Esto se debia a que los datos los guardabamos en MEMORIA PRINCIPAL,
+lo que significa que se alojaban en la memoria RAM.
+
+Caracteristicas de la memoria PRINCIPAL o RAM:
+-Tiene capacidad limitada
+-Es volatil es decir que al apagar o quedar sin energia la computadora, los datos
+ahi alojados se eliminan
+-Es una memoria de tipo electronica, por lo cual su velocidad de trabajo es muy 
+elevada.
+
+Para solucion este problema, en la computacion se creó lo que llamamos hoy MEMORIA
+SECUNDARIA, sus caracteristicas son:
+-Son no volatiles, es decir que tienen la capacidad de retener informacion aunque el
+programa ya haya finalizado o la computadora se haya apagado.
+-Su capacidad tambien es limitada, pero es mayor que la de la memoria PRINCIPAL
+-Es todo aquello que este ubicado fuera de la memoria RAM, y al contrario de ella
+pueda retener informacion
+-Poseen muchos menos velocidad de acceso, por ende afecta la eficiencia de un 
+algoritmo
+La aparicion de estos medios se da debido a la necesidad de la retencion de
+informacion para poder manipularla en otro momento o para tener un registro
+de algo, esos son los ARCHIVOS.
+
+Archivos:
+Son las estructuras de datos que se asocian con un dispositivo de memoria
+auxiliar permanente donde almacenan la informacion.
+Se utilizan:
+-Cuando la cantidad de datos que manipula el programa es muy grande y no hay
+espacio suficiente en la RAM.
+-Cuando lo que se produce de un programa,sirve de entrada para otro, y por ello
+es imperioso guardarlo en forma permanente.
+-Cuando el ingreso sucesivo de datos de forma diaria seria ineficiente, y por lo
+tanto conviene guardarlo de forma no volatil.
+
+Para que los programas son capaces de obtener y mandar datos de y hacia los 
+dispostivos (de entrada y salida) e incluso de ficheros (archivos). Para esto,
+se necesita establecer una via de comunicacion entre los componentes que necesitan
+comunicarse, esa via o canal,se llama FLUJO DE DATOS,o STREAM.
+Los flujos de datos se clasifican en:
+Flujo de entrada: Son los que permiten leer informacion del fichero al que se conecten.
+Flujo de salida: Son aquellos que permiten enviarle informacion.
+Flujo de entrada/salida: Como su nombre indica,permiten hacer las dos operaciones.
+
+A traves de estos flujos pueden circular distintos tipos de dato,los cuales pueden
+ser:
+-Archivos de texto(.txt): Un flujo de texto es una secuencia de lineas, cada linea
+tiene cero o mas caracteres y esta terminada por una marca especial llamada,nueva linea
+se representa con "\n".
+Archivos binarios(.dat): Un flujo de datos binarios es una secuencia de bytes no procesados
+que representan datos internos. Los datos guardados de forma binaria necesitan ser
+interpretados en su lectura de forma adecuada, saber interpretar la secuencia de bytes es 
+responsabilidad del programa.
+
+Archivos, definicion:
+Un archivo o fichero (file) es una coleccion de datos del mismo tipo relacionados entre
+si, almacenados de forma no volatil, con un determinado diseño o estructura.
+Su objetivo es:
+-El almacenamiento permanente.
+-Manipulacion de gran numero de datos.
+-Independencia de los programas.
+-Poder residir en disintos soportes.
+
+La estructura de un archivo es la siguiente:
+Archivos-> COLECCION DE REGISTROS -A su vez- Registros->COLECCION DE CAMPOS
+Definicion:
+Registros: Los registros estan conformados por un conjunto de campos, los cuales
+pueden ser comparados con un arreglo.
+Campos: Son los valores que se almacenan dentro de cada registro y deber ser leidos
+uno a uno.
+
+Ejemplo:
+
+Registros----->	DNI	Apellidos     Nombre	Nota Teoria	Nota Practica
+Campos--------> 1234    Fernandez     Rodolfo   9,50            8,50
+Campos--------> 5678    Gomez         Lucas     6,00            10,00
+Campos--------> 9101    Rodriguez     Ezequiel  7,25            5,00
+
+Operaciones que se pueden realizar para con los archivos:
+Existe un mecanismo para la insercion y recuperacion de la informacion, y este debe
+seguir una logica que el programa debe conocer,y que se encuentra condicionada por
+las caracteristicas de los dispositivos.
+
+CREACION: Definicion del archivo.
+APERTURA: Comunicacion del archivo logico con el fisico.
+CIERRE: Cerrar la conexion.
+LECTURA/CONSULTA: Acceder al archivo para ver el contenido.
+FIN DEL ARCHIVO (EOF): Detecta el final del archivo.
+DESTRUCCION: Borra el archivo.
+ESCRITURA: 
+	-Alta: Adiciona registros.
+	-Baja: Eliminacion o borrado logico de registros.
+	-Modificacion: Altera la informacion del contenido.
+
+Para acceder a estos archivos estudiamos tres formas:
+-Secuenciales.
+-Directos.
+-Indexados.
+
+Secuencial: El acceso secuencial es, es aquel donde los registros estan ubicados
+consecutivamente en un soporte de almacenamiento. De tal forma que para acceder
+un a un registro x,debemos pasar obligatoriamente por todos los que lo preceden.
+Esta organizacion al final contiene una marca(en general un asterisco) que marca
+el fin de archivo, que se detecta con una funcion EOF (end of file) o FDA (fin de
+archivo).
+Se trata una de estructura con acceso secuencial si y solo si se pueden accerder
+a los valores contenidos en un determinado orden.
+
+Directo o aleatorio: Es aquel que se encuentra almacenado en un dispositivo 
+direccionable, y donde sus registros poseen una numeracion que identifica sin
+posibilidad de equivocacion cada registro.
+Los datos se colocan y acceden aleatoriamente mediante su posicion.
+En esta organizacion se pueden escribir registros y leerlos, en cualquier orden
+y lugar.
+Poseen inconvenientes como: Establecer la relacion entre la posicion que ocupa un
+registro y su contenido, o desaprovecha parte del espacio destinado al archivo.
+Su ventaja es la rapidez en el acceso a un registro cualquiera. Es decir que podemos
+referirnos a un registro media la posicion del mismo e ir directamente alli.
+
+Indexado: Como la organizacion directa,esta almacenada en un dispositivo direccionable.
+Cada registro posee un CAMPO CLAVE PRINCIPAL y que identifica a cada registro.
+La CLAVE PRINCIPAL es un campo del registro que tiene siempre un valor diferente
+a los ya introducidos, es decir, dentro del fichero indexado no puede haber dos 
+registros con los campos clave principal iguales.
+La gran ventaja de esta organizacion radica en eso,el campo clave, ya que se puede
+localizar de manera inmediata el registro correspondiente al valor buscado.
+Ademas se pueden agregar otro campos claves secundarios para poder recuperar 
+inmediatamente la informacion en base a otros criterios.
+Ventajas:
+-Rapido acceso.
+-El sistema se encarga de relacionar la posicion de cada registro con su contenido
+por medio del area de indices.
+-Gestiona las areas de indices y excedentes.
+Desventajas:
+-Necesidad de espacio adicional para el area de indices
+-Desaprovechamiento de espacio que resulta al quedar huecos intermedios libres despues
+de sucesivas actualizaciones
+
+Clase FILE:
+La clase File es el unico objeto del paquete java.io (input/output) que representa el
+archivo de disco en si.
+La clase File define algunos metodos independientes de la plataforma para manipular archivos.
+Puede crear,eliminar y renombrar archivos llamando a los metodos de la clase File.
+Las clases de datos pueden escribir datos en archivos.
+Los arhivos tambien son los medios de datos mas utilizados para el flujo de datos.
+
+Dentro de la clase file tenemos:
+
+Metodo			Retorna 	Descripcion
+
+getName()      		String		Obtener el nombre del archivo
+canRead()       	boolean         Determina si el archivo es legible
+canWrite()      	boolean         Determina si el archivo se puede escribir
+exits()         	boolean         Determina si el archivo existe
+length()        	long            Obtiene la longitud del archivo (en bytes)
+getAbsolutePath()       String          Obtiene la ruta absoluta del archivo
+getParent()             String          Obtiene su camino para padres
+isFile()                boolean         Determina si el archivo existe
+isDirectory()           boolean         Determina si el archivo es un directorio
+isHidden()              boolean         Determina si el archivo es un archivo oculto
+lastModified()          long            Obtener la ultima hora de modificacion del archivo
+
+FileWriter:
+Se utiliza para escribir en el archivo siempre que el mismo exista o se le indique que lo cree
+antes de comenzar a escribir en el mismo.
+
+FileReader: lee el archivo de forma secuencial, siempre que la secuencia no este cerrada,
+el resto del contenido de la fuente se lee secuencialmente cada vez que se llama al metodo read()
+hasta que se cierra la fuente o se cierra la secuencia
+
